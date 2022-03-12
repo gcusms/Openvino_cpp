@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/wolf/Desktop/temp2/demo/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9 -Ddetector_EXPORTS -I/opt/intel/openvino_2021/deployment_tools/ngraph/include -I/home/wolf/Desktop/temp2/demo -isystem /opt/intel/openvino_2021/deployment_tools/inference_engine/include -isystem /opt/intel/openvino_2021.4.752/opencv/include -g -fPIC -Wno-error=deprecated-declarations -std=gnu++11 -o CMakeFiles/detector.dir/detector.cpp.o -c /home/wolf/Desktop/temp2/demo/detector.cpp",
+  "file": "/home/wolf/Desktop/temp2/demo/detector.cpp"
+},
+{
+  "directory": "/home/wolf/Desktop/temp2/demo/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -I/home/wolf/Desktop/temp2/demo -isystem /opt/intel/openvino_2021/deployment_tools/inference_engine/include -isystem /opt/intel/openvino_2021/deployment_tools/ngraph/include -isystem /opt/intel/openvino_2021.4.752/opencv/include -g -Wno-error=deprecated-declarations -std=gnu++11 -o CMakeFiles/detect_test.dir/main.cpp.o -c /home/wolf/Desktop/temp2/demo/main.cpp",
+  "file": "/home/wolf/Desktop/temp2/demo/main.cpp"
+}
+]
