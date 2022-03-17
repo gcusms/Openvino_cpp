@@ -12,7 +12,7 @@ find_package(OpenCV REQUIRED)
 set(InferenceEngine_DIR "/opt/intel/openvino_2021/deployment_tools/inference_engine/share")
 find_package(InferenceEngine)
 set(ngraph_DIR "/opt/intel/openvino_2021/deployment_tools/ngraph")
-find_package(ngraph REQUIRED)
+# find_package(ngraph REQUIRED)
 set(ngraph_LIBRARIES "/opt/intel/openvino_2021/deployment_tools/ngraph/lib/libngraph.so")
 set(ngraph_INCLUDE_DIRS "/opt/intel/openvino_2021/deployment_tools/ngraph/include/")
 
@@ -25,12 +25,11 @@ target_include_directories(detector
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
         PUBLIC ${OpenCV_INCLUDE_DIR}
         PUBLIC ${InferenceEngine_INCLUDE_DIRS}
-        PUBLIC ${ngraph_INCLUDE_DIRS}
+        # PUBLIC ${ngraph_INCLUDE_DIRS}
 )
 target_link_libraries(detector
-        ${OpenCV_LIBS}
         ${InferenceEngine_LIBRARIES}
-        ${ngraph_LIBRARIES}
+        # ${ngraph_LIBRARIES}
 )
                         
 include_directories(${PROJECT_SOURCE_DIR}/device/camera)
@@ -39,12 +38,8 @@ find_package(fmt REQUIRED)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} 
                         PRIVATE 
-                        ${InferenceEngine_LIBRARIES}
-                        ${OpenCV_LIBS} 
-                        ${NGRAPH_LIBRARIES}
-                        detector
+                        # detector
                         fmt::fmt
-                        ${OpenCV_LIBS}
                         )
 #opencv
 find_package(OpenCV REQUIRED)

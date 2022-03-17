@@ -1,5 +1,6 @@
 #include "infer/detector.h"
 #include "devices/camera/mv_video_capture.hpp"
+#include <chrono>
 
 int main(int argc, char const *argv[])
 {
@@ -17,12 +18,12 @@ int main(int argc, char const *argv[])
         {      
             mv_capture->cameraReleasebuff();
             src_img = mv_capture->image();
-            auto start = chrono::high_resolution_clock::now();
+            auto start = std::chrono::high_resolution_clock::now();
             if(!src_img.empty()) {
                 cv::imshow("FRAME",src_img);
-                cv:waitKey(1);
+                cv::waitKey(1);
             }
-            auto end = chrono::high_resolution_clock::now();
+            auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff = end - start;
             fmt::print("use:{}s",diff.count());
         }
