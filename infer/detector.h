@@ -5,7 +5,6 @@
 #include <iostream>
 #include <chrono>
 #include <opencv2/dnn/dnn.hpp>
-#include <inference_engine.hpp>
 #include <cmath>
 
 

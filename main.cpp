@@ -7,7 +7,8 @@ int main(int argc, char const *argv[])
     int camera_exposure = 5000;
     mindvision::CameraParam camera_params(0, mindvision::RESOLUTION_1280_X_1024,
                                     camera_exposure);
-    auto mv_capture = std::make_shared<mindvision::VideoCapture>(camera_params);
+    mindvision::VideoCapture *mv_capture = new mindvision::VideoCapture(camera_params);
+    // auto mv_capture = std::make_shared<mindvision::VideoCapture>(camera_params);
     cv::Mat src_img;
 
     while (true)
