@@ -4,7 +4,7 @@
 # compile CXX with /bin/x86_64-linux-gnu-g++-9
 CXX_DEFINES = -Ddetector_EXPORTS
 
-CXX_INCLUDES = -I/opt/intel/openvino_2021/deployment_tools/ngraph/include -I/home/wolf/Desktop/temp2/demo -isystem /opt/intel/openvino_2021/deployment_tools/inference_engine/include -isystem /opt/intel/openvino_2021.4.752/opencv/include
+CXX_INCLUDES = -I/opt/intel/openvino_2021/deployment_tools/ngraph/include -I/home/wolf/Desktop/temp2/demo -I/home/wolf/Desktop/temp2/demo/device/camera -isystem /opt/intel/openvino_2021/deployment_tools/inference_engine/include -isystem /opt/intel/openvino_2021.4.752/opencv/include
 
 CXX_FLAGS = -g -fPIC -Wno-error=deprecated-declarations -std=gnu++11
 

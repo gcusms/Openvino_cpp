@@ -226,6 +226,9 @@ detect_test_SOURCE_DIR:STATIC=/home/wolf/Desktop/temp2/demo
 //Dependencies for the target
 detector_LIB_DEPENDS:STATIC=general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_gapi;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;IE::inference_engine;general;IE::inference_engine_c_api;general;/opt/intel/openvino_2021/deployment_tools/ngraph/lib/libngraph.so;
 
+//The directory containing a CMake configuration file for fmt.
+fmt_DIR:PATH=/usr/local/lib/cmake/fmt
+
 //The directory containing a CMake configuration file for ngraph.
 ngraph_DIR:PATH=/opt/intel/openvino_2021/deployment_tools/ngraph/cmake
 

@@ -1206,6 +1206,18 @@
 			"value" : "general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_gapi;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;IE::inference_engine;general;IE::inference_engine_c_api;general;/opt/intel/openvino_2021/deployment_tools/ngraph/lib/libngraph.so;"
 		},
 		{
+			"name" : "fmt_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for fmt."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/lib/cmake/fmt"
+		},
+		{
 			"name" : "ngraph_DIR",
 			"properties" : 
 			[

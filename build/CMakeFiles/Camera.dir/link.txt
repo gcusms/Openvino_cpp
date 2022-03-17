@@ -1,0 +1,2 @@
+/bin/x86_64-linux-gnu-ar qc libCamera.a CMakeFiles/Camera.dir/devices/camera/mv_video_capture.cpp.o
+/bin/x86_64-linux-gnu-ranlib libCamera.a

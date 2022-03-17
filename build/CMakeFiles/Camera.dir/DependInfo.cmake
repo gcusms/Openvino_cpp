@@ -8,13 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/wolf/Desktop/temp2/demo/main.cpp" "CMakeFiles/detect_test.dir/main.cpp.o" "gcc" "CMakeFiles/detect_test.dir/main.cpp.o.d"
+  "/home/wolf/Desktop/temp2/demo/devices/camera/mv_video_capture.cpp" "CMakeFiles/Camera.dir/devices/camera/mv_video_capture.cpp.o" "gcc" "CMakeFiles/Camera.dir/devices/camera/mv_video_capture.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/wolf/Desktop/temp2/demo/build/CMakeFiles/detector.dir/DependInfo.cmake"
-  "/home/wolf/Desktop/temp2/demo/build/CMakeFiles/Camera.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

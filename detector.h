@@ -20,6 +20,7 @@ public:
         float prob;
         std::string name;
         cv::Rect rect;
+        int status; // 块的状态
     } Object;
     Detector();
     ~Detector();

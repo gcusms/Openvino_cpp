@@ -361,4 +361,14 @@ CMakeFiles/detect_test.dir/main.cpp.o: \
  /opt/intel/openvino_2021/deployment_tools/inference_engine/include/cpp/ie_memory_state.hpp \
  /opt/intel/openvino_2021/deployment_tools/inference_engine/include/ie_imemory_state.hpp \
  /opt/intel/openvino_2021/deployment_tools/inference_engine/include/ie_iinfer_request.hpp \
- /opt/intel/openvino_2021/deployment_tools/inference_engine/include/ie_iexecutable_network.hpp
+ /opt/intel/openvino_2021/deployment_tools/inference_engine/include/ie_iexecutable_network.hpp \
+ /home/wolf/Desktop/temp2/demo/devices/camera/mv_video_capture.hpp \
+ /usr/local/include/fmt/core.h /usr/local/include/fmt/color.h \
+ /usr/local/include/fmt/format.h /usr/local/include/fmt/core.h \
+ /usr/local/include/opencv4/opencv2/highgui/highgui.hpp \
+ /opt/intel/openvino_2021.4.752/opencv/include/opencv2/imgproc/imgproc_c.h \
+ /opt/intel/openvino_2021.4.752/opencv/include/opencv2/imgproc/types_c.h \
+ /opt/intel/openvino_2021.4.752/opencv/include/opencv2/core/core_c.h \
+ /opt/intel/openvino_2021.4.752/opencv/include/opencv2/core/types_c.h \
+ /usr/include/CameraApi.h /usr/include/CameraDefine.h \
+ /usr/include/CameraStatus.h

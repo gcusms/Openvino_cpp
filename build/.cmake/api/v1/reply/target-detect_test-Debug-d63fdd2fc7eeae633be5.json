@@ -26,11 +26,23 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 35,
+				"line" : 39,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
 				"file" : 0,
 				"line" : 36,
 				"parent" : 0
@@ -62,16 +74,20 @@
 			"includes" : 
 			[
 				{
+					"backtrace" : 4,
+					"path" : "/home/wolf/Desktop/temp2/demo/device/camera"
+				},
+				{
 					"backtrace" : 2,
 					"path" : "/home/wolf/Desktop/temp2/demo"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/opt/intel/openvino_2021/deployment_tools/inference_engine/include"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/opt/intel/openvino_2021/deployment_tools/ngraph/include"
 				},
@@ -86,6 +102,7 @@
 			{
 				"backtraces" : 
 				[
+					2,
 					2
 				],
 				"standard" : "11"
@@ -101,6 +118,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "detector::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Camera::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "detect_test::@6890427a1f51a3e7e1df",
@@ -123,6 +144,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "libdetector.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libfmt.a",
 				"role" : "libraries"
 			},
 			{
@@ -162,6 +188,21 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "/opt/intel/openvino_2021/opencv/lib/libopencv_videoio.so.4.5.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libCamera.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/lib/libMVSDK.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "/opt/intel/openvino_2021/opencv/lib/libopencv_calib3d.so.4.5.3",
 				"role" : "libraries"
 			},
@@ -193,11 +234,6 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "/opt/intel/openvino_2021/opencv/lib/libopencv_flann.so.4.5.3",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "/opt/intel/openvino_2021/opencv/lib/libopencv_videoio.so.4.5.3",
 				"role" : "libraries"
 			},
 			{

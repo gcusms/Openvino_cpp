@@ -1,4 +1,5 @@
 /home/wolf/Desktop/temp2/demo/build/CMakeFiles/detector.dir
 /home/wolf/Desktop/temp2/demo/build/CMakeFiles/detect_test.dir
+/home/wolf/Desktop/temp2/demo/build/CMakeFiles/Camera.dir
 /home/wolf/Desktop/temp2/demo/build/CMakeFiles/edit_cache.dir
 /home/wolf/Desktop/temp2/demo/build/CMakeFiles/rebuild_cache.dir

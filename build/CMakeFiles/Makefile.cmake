@@ -25,6 +25,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/intel/openvino_2021/opencv/cmake/OpenCVConfig.cmake"
   "/opt/intel/openvino_2021/opencv/cmake/OpenCVModules-release.cmake"
   "/opt/intel/openvino_2021/opencv/cmake/OpenCVModules.cmake"
+  "/usr/local/lib/cmake/fmt/fmt-config-version.cmake"
+  "/usr/local/lib/cmake/fmt/fmt-config.cmake"
+  "/usr/local/lib/cmake/fmt/fmt-targets-release.cmake"
+  "/usr/local/lib/cmake/fmt/fmt-targets.cmake"
   "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.22/Modules/CMakeCInformation.cmake"
   "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.22/Modules/CMakeCXXInformation.cmake"
   "/usr/local/lib/python3.8/dist-packages/cmake/data/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake"
@@ -61,4 +65,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/detector.dir/DependInfo.cmake"
   "CMakeFiles/detect_test.dir/DependInfo.cmake"
+  "CMakeFiles/Camera.dir/DependInfo.cmake"
   )

@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -40,15 +42,22 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "Camera::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Camera-Debug-08b3b2e8489a55815aff.json",
+					"name" : "Camera",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "detect_test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-detect_test-Debug-bc489c260b0a6d39c880.json",
+					"jsonFile" : "target-detect_test-Debug-d63fdd2fc7eeae633be5.json",
 					"name" : "detect_test",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "detector::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-detector-Debug-81116db47d15f7495dd9.json",
+					"jsonFile" : "target-detector-Debug-0cfafcc070135d221973.json",
 					"name" : "detector",
 					"projectIndex" : 0
 				}

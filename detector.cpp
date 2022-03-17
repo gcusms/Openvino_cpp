@@ -25,7 +25,7 @@ bool Detector::parse_yolov5(const Blob::Ptr &blob,int net_grid,float cof_thresho
    const float *output_blob = blobMapped.as<float *>();
    //80个类是 85,一个类是 6,n个类是n+5
    //int item_size = 6;
-   int item_size = 11;
+   int item_size = 6+5;
     size_t anchor_n = 3;
     for(int n=0;n<anchor_n;++n)
         for(int i=0;i<net_grid;++i)
@@ -57,7 +57,6 @@ bool Detector::parse_yolov5(const Blob::Ptr &blob,int net_grid,float cof_thresho
                 //对于边框置信度小于阈值的边框,不关心其他数值,不进行计算减少计算量
                 if(cof < cof_threshold)
                     continue;
-
                 x = (sigmoid(x)*2 - 0.5 + j)*640.0f/net_grid;
                 y = (sigmoid(y)*2 - 0.5 + i)*640.0f/net_grid;
                 w = pow(sigmoid(w)*2,2) * anchors[n*2];
@@ -112,8 +111,9 @@ bool Detector::process_frame(Mat& inframe,vector<Object>& detected_objects){
         cout << "无效图片输入" << endl;
         return false;
     }
-    resize(inframe,inframe,Size(640,640));
-    cvtColor(inframe,inframe,COLOR_BGR2RGB);
+    Mat deteImage = inframe.clone();
+    resize(deteImage,deteImage,Size(640,640));
+    cvtColor(deteImage,deteImage,COLOR_BGR2RGB);
     size_t img_size = 640*640;
     InferRequest::Ptr infer_request = _network.CreateInferRequestPtr();
     Blob::Ptr frameBlob = infer_request->GetBlob(_input_name);
@@ -150,7 +150,8 @@ bool Detector::process_frame(Mat& inframe,vector<Object>& detected_objects){
         Rect resize_rect= origin_rect[final_id[i]];
         detected_objects.push_back(Object{
             origin_rect_cof[final_id[i]],
-            names2[label[final_id[i]]],resize_rect
+            names2[label[final_id[i]]],resize_rect,
+            label[final_id[i]]
         });
         // cv::putText(inframe, names[final_id[i]], cv::Point(origin_rect_cof[final_id[i]].rect.x, ymin), cv::FONT_HERSHEY_TRIPLEX, 0.7, cv::Scalar{ 0, 0, 255 });
     }

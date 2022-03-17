@@ -17,6 +17,7 @@ set(ngraph_LIBRARIES "/opt/intel/openvino_2021/deployment_tools/ngraph/lib/libng
 set(ngraph_INCLUDE_DIRS "/opt/intel/openvino_2021/deployment_tools/ngraph/include/")
 
 
+
 # 编译detector.so
 
 add_library (detector SHARED ${CMAKE_CURRENT_SOURCE_DIR}/detector.cpp)
@@ -31,26 +32,35 @@ target_link_libraries(detector
         ${InferenceEngine_LIBRARIES}
         ${ngraph_LIBRARIES}
 )
-
-add_executable(detect_test main.cpp)
-target_link_libraries(detect_test
+                        
+include_directories(${PROJECT_SOURCE_DIR}/device/camera)
+# fmt
+find_package(fmt REQUIRED)
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} 
                         PRIVATE 
                         ${InferenceEngine_LIBRARIES}
                         ${OpenCV_LIBS} 
                         ${NGRAPH_LIBRARIES}
                         detector
+                        fmt::fmt
+                        ${OpenCV_LIBS}
+                        )
+#opencv
+find_package(OpenCV REQUIRED)
+target_link_libraries(${PROJECT_NAME}  
+                        PRIVATE 
+                        ${OpenCV_LIBS}
                         )
 
 
-# cmake_minimum_required(VERSION 3.10.0)
-# project(main)
-# find_package(ngraph REQUIRED)
-# find_package(InferenceEngine REQUIRED)
-# find_package(OpenCV REQUIRED)
-# add_executable(${PROJECT_NAME} main.cpp)
-# target_link_libraries(${PROJECT_NAME} 
-#                         PRIVATE 
-#                         ${InferenceEngine_LIBRARIES}
-#                         ${OpenCV_LIBS} 
-#                         ${NGRAPH_LIBRARIES}
-#                         )
+#Camera
+add_library(MVSDK SHARED IMPORTED)
+add_library(Camera devices/camera/mv_video_capture.cpp)
+set(MIMDVISION_SDK_LIBRARY /lib/libMVSDK.so)
+set_property(TARGET MVSDK PROPERTY IMPORTED_LOCATION ${MIMDVISION_SDK_LIBRARY})
+target_link_libraries(${PROJECT_NAME}  
+                                PRIVATE 
+                                Camera 
+                                MVSDK
+                                )

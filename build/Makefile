@@ -142,6 +142,19 @@ detect_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/detect_test.dir/build.make CMakeFiles/detect_test.dir/build
 .PHONY : detect_test/fast
 
+#=============================================================================
+# Target rules for targets named Camera
+
+# Build rule for target.
+Camera: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Camera
+.PHONY : Camera
+
+# fast build rule for target.
+Camera/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Camera.dir/build.make CMakeFiles/Camera.dir/build
+.PHONY : Camera/fast
+
 detector.o: detector.cpp.o
 .PHONY : detector.o
 
@@ -165,6 +178,30 @@ detector.s: detector.cpp.s
 detector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/detector.dir/build.make CMakeFiles/detector.dir/detector.cpp.s
 .PHONY : detector.cpp.s
+
+devices/camera/mv_video_capture.o: devices/camera/mv_video_capture.cpp.o
+.PHONY : devices/camera/mv_video_capture.o
+
+# target to build an object file
+devices/camera/mv_video_capture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Camera.dir/build.make CMakeFiles/Camera.dir/devices/camera/mv_video_capture.cpp.o
+.PHONY : devices/camera/mv_video_capture.cpp.o
+
+devices/camera/mv_video_capture.i: devices/camera/mv_video_capture.cpp.i
+.PHONY : devices/camera/mv_video_capture.i
+
+# target to preprocess a source file
+devices/camera/mv_video_capture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Camera.dir/build.make CMakeFiles/Camera.dir/devices/camera/mv_video_capture.cpp.i
+.PHONY : devices/camera/mv_video_capture.cpp.i
+
+devices/camera/mv_video_capture.s: devices/camera/mv_video_capture.cpp.s
+.PHONY : devices/camera/mv_video_capture.s
+
+# target to generate assembly for a file
+devices/camera/mv_video_capture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Camera.dir/build.make CMakeFiles/Camera.dir/devices/camera/mv_video_capture.cpp.s
+.PHONY : devices/camera/mv_video_capture.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -198,11 +235,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Camera"
 	@echo "... detect_test"
 	@echo "... detector"
 	@echo "... detector.o"
 	@echo "... detector.i"
 	@echo "... detector.s"
+	@echo "... devices/camera/mv_video_capture.o"
+	@echo "... devices/camera/mv_video_capture.i"
+	@echo "... devices/camera/mv_video_capture.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
