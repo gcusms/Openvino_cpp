@@ -1,4 +1,4 @@
-#include "detector.h"
+#include "infer/detector.h"
 #include "devices/camera/mv_video_capture.hpp"
 
 int main(int argc, char const *argv[])

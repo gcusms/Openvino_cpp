@@ -18,9 +18,9 @@ set(ngraph_INCLUDE_DIRS "/opt/intel/openvino_2021/deployment_tools/ngraph/includ
 
 
 
-# 编译detector.so
-
-add_library (detector SHARED ${CMAKE_CURRENT_SOURCE_DIR}/detector.cpp)
+# 编译detector.so black_box
+include_directories(${PROJECT_SOURCE_DIR}/infer)
+add_library (detector SHARED ${CMAKE_CURRENT_SOURCE_DIR}/infer/detector.cpp)
 target_include_directories(detector
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
         PUBLIC ${OpenCV_INCLUDE_DIR}
@@ -52,8 +52,6 @@ target_link_libraries(${PROJECT_NAME}
                         PRIVATE 
                         ${OpenCV_LIBS}
                         )
-
-
 #Camera
 add_library(MVSDK SHARED IMPORTED)
 add_library(Camera devices/camera/mv_video_capture.cpp)
