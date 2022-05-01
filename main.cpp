@@ -1,32 +1,51 @@
-#include "infer/detector.h"
-#include "devices/camera/mv_video_capture.hpp"
-#include <chrono>
+#include "detector.h"
+#include <thread>
+void Detect(){
+    Detector* detector = new Detector;
+    string xml_path = "../res/best.xml";
+    detector->init(xml_path, 0.5, 0.5);
 
+    /*
+    VideoCapture capture;
+    capture.open(0);
+    Mat src;
+    while(1){
+        capture >> src;
+        vector<Detector::Object> detected_objects;
+    detector->process_frame(src,detected_objects);
+    for(int i=0;i<detected_objects.size();++i){
+        int xmin = detected_objects[i ].rect.x;
+        int ymin = detected_objects[i].rect.y;
+        int width = detected_objects[i].rect.width;
+        int height = detected_objects[i].rect.height;
+        Rect rect(xmin, ymin, width, height);//左上坐标（x,y）和矩形的长(x)宽(y)
+        cv::rectangle(src, rect, Scalar(255, 0, 0),1, LINE_8,0);
+    }
+        imshow("cap",src);
+        waitKey(1);
+    }
+    */
+    Mat src = imread("../res/102.jpg");
+    Mat osrc = src.clone();
+    resize(osrc,osrc,Size(640,640));
+    vector<Detector::Object> detected_objects;
+    auto start = chrono::high_resolution_clock::now();
+    detector->process_frame(src,detected_objects);
+    auto end = chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end - start;
+    cout<<"use "<<diff.count()<<" s" << endl;
+    for(size_t i=0;i<detected_objects.size();++i){
+        int xmin = detected_objects[i].rect.x;
+        int ymin = detected_objects[i].rect.y;
+        int width = detected_objects[i].rect.width;
+        int height = detected_objects[i].rect.height;
+        Rect rect(xmin, ymin, width, height);//左上坐标（x,y）和矩形的长(x)宽(y)
+        cv::rectangle(osrc, rect, Scalar(255, 0, 255),2, cv::LINE_AA,0);
+    }
+    imshow("result",osrc);
+    waitKey(0);
+}
 int main(int argc, char const *argv[])
 {
-    
-    int camera_exposure = 5000;
-    mindvision::CameraParam camera_params(0, mindvision::RESOLUTION_1280_X_1024,
-                                    camera_exposure);
-    mindvision::VideoCapture *mv_capture = new mindvision::VideoCapture(camera_params);
-    // auto mv_capture = std::make_shared<mindvision::VideoCapture>(camera_params);
-    cv::Mat src_img;
-
-    while (true)
-    {
-        if (mv_capture->isindustryimgInput())
-        {      
-            mv_capture->cameraReleasebuff();
-            src_img = mv_capture->image();
-            auto start = std::chrono::high_resolution_clock::now();
-            if(!src_img.empty()) {
-                cv::imshow("FRAME",src_img);
-                cv::waitKey(1);
-            }
-            auto end = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> diff = end - start;
-            fmt::print("use:{}s",diff.count());
-        }
-    }
-    
+    Detect();
 }

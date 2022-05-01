@@ -3,57 +3,30 @@ project(detect_test)
 set(CMAKE_CXX_STANDARD 11)
 include_directories(
     #OpenVINO推理引擎的头文件
-    /opt/intel/openvino_2021/deployment_tools/inference_engine/include/
-    /opt/intel/openvino_2021/deployment_tools/ngraph/include/
+    /home/sms/intel/openvino_2021/deployment_tools/inference_engine/include/
+    /home/sms/intel/openvino_2021/deployment_tools/ngraph/include/
+    .
 )
-
 #查找必要的依赖包
 find_package(OpenCV REQUIRED)
-set(InferenceEngine_DIR "/opt/intel/openvino_2021/deployment_tools/inference_engine/share")
 find_package(InferenceEngine)
-set(ngraph_DIR "/opt/intel/openvino_2021/deployment_tools/ngraph")
-# find_package(ngraph REQUIRED)
-set(ngraph_LIBRARIES "/opt/intel/openvino_2021/deployment_tools/ngraph/lib/libngraph.so")
-set(ngraph_INCLUDE_DIRS "/opt/intel/openvino_2021/deployment_tools/ngraph/include/")
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O0 -g -Wfatal-errors -D_MWAITXINTRIN_H_INCLUDED -pthread -lstdc++")
 
-
-# 编译detector.so black_box
-include_directories(${PROJECT_SOURCE_DIR}/infer)
-add_library (detector SHARED ${CMAKE_CURRENT_SOURCE_DIR}/infer/detector.cpp)
+# 编译detector.so
+add_library (detector SHARED ${CMAKE_CURRENT_SOURCE_DIR}/detector.cpp)
 target_include_directories(detector
-        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
         PUBLIC ${OpenCV_INCLUDE_DIR}
         PUBLIC ${InferenceEngine_INCLUDE_DIRS}
-        # PUBLIC ${ngraph_INCLUDE_DIRS}
 )
 target_link_libraries(detector
+        ${OpenCV_LIBS}
         ${InferenceEngine_LIBRARIES}
-        # ${ngraph_LIBRARIES}
 )
-                        
-include_directories(${PROJECT_SOURCE_DIR}/device/camera)
-# fmt
-find_package(fmt REQUIRED)
-add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} 
-                        PRIVATE 
-                        # detector
-                        fmt::fmt
-                        )
-#opencv
-find_package(OpenCV REQUIRED)
-target_link_libraries(${PROJECT_NAME}  
-                        PRIVATE 
-                        ${OpenCV_LIBS}
-                        )
-#Camera
-add_library(MVSDK SHARED IMPORTED)
-add_library(Camera devices/camera/mv_video_capture.cpp)
-set(MIMDVISION_SDK_LIBRARY /lib/libMVSDK.so)
-set_property(TARGET MVSDK PROPERTY IMPORTED_LOCATION ${MIMDVISION_SDK_LIBRARY})
-target_link_libraries(${PROJECT_NAME}  
-                                PRIVATE 
-                                Camera 
-                                MVSDK
-                                )
+
+add_executable(detect_test main.cpp)
+target_link_libraries(detect_test
+        ${OpenCV_LIBS}
+        detector
+)
