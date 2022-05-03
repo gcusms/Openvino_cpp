@@ -30,3 +30,10 @@ target_link_libraries(detect_test
         ${OpenCV_LIBS}
         detector
 )
+
+
+#("----------------------FMT----------------------")
+#fmt
+find_package(fmt REQUIRED)
+target_link_libraries(detect_test
+                        fmt::fmt)

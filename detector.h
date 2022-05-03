@@ -13,11 +13,19 @@ using namespace InferenceEngine;
 class Detector
 {
 public:
-    typedef struct {
+    struct Object{
         float prob;
         std::string name;
         cv::Rect rect;
-    } Object;
+        int id;
+        int dis_cols;
+        int dis_rows;
+        int dis_;
+        bool operator < (const Object &y) const
+        {
+            return dis_rows < y.dis_rows; 
+        }
+    } ;
     Detector();
     ~Detector();
     //初始化
@@ -31,7 +39,9 @@ private:
     double sigmoid(double x);
     vector<int> get_anchors(int net_grid);
     bool parse_yolov5(const Blob::Ptr &blob,int net_grid,float cof_threshold,
-        vector<Rect>& o_rect,vector<float>& o_rect_cof);
+        vector<Rect>& o_rect,vector<float>& o_rect_cof,vector<int>& input_label);
+    bool parse_yolov5_2(const Blob::Ptr &blob, float cof_threshold, 
+        vector<Rect>& o_rect, vector<float>& o_rect_cof, vector<int>& label_input);
     Rect detet2origin(const Rect& dete_rect,float rate_to,int top,int left);
     //存储初始化获得的可执行网络
     ExecutableNetwork _network;
